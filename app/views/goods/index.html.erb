@@ -1,0 +1,46 @@
+<h1>GeekInstagram</h1>
+<%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+<h3>投稿一覧</h3>
+
+<% if user_signed_in? %>
+  <%= link_to "マイページへ", user_path(current_user.id) %>
+<% end %>
+
+<h3>投稿を検索</h3>
+ <%= form_tag({controller:"goods",action:"index"}, method: :get) do %>
+   <%= text_field_tag :search %>
+   <%= submit_tag '検索する'  %>
+<% end %>
+
+<%= link_to "新規投稿へ", new_good_path %>
+
+<div class="goods-container">
+    <% @goods.each do |g| %>
+        <div class="good">
+
+        <%= image_tag t.image_url, size: "250x200" if t.image? %>
+
+     <% if user_signed_in? %>
+            <% if current_user.already_liked?(g) %>
+                <%= link_to good_like_path(id: t.id, good_id: t.id), method: :delete do %>
+                    <i class="fas fa-heart"></i><%= t.likes.count %>
+                <% end %>
+            <% else %>
+                <%= link_to good_likes_path(id: g.id, good_id: g.id), method: :post do %>
+                    <i class="far fa-heart"></i><%= t.likes.count %>
+                <% end %>
+            <% end %>
+        <% else %>
+        <i class="far fa-heart"></i><%= t.likes.count %>
+    <% end %>
+
+            <%= t.user.email %> 
+            <%= g.name %>
+            <%= g.about %>
+            <%= g.created_at %>
+            <%= link_to "詳細へ", good_path(g.id) %> 
+            <%= link_to "編集する", edit_good_path(g.id) %>
+            <%= button_to "削除する", good_path(g.id), method: :delete %> 
+        </div>
+    <% end %>
+</div>
