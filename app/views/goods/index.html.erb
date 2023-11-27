@@ -34,13 +34,18 @@
         <i class="far fa-heart"></i><%= t.likes.count %>
     <% end %>
 
-            <%= t.user.email %> 
-            <%= g.name %>
-            <%= g.about %>
-            <%= g.created_at %>
-            <%= link_to "詳細へ", good_path(g.id) %> 
-            <%= link_to "編集する", edit_good_path(g.id) %>
-            <%= button_to "削除する", good_path(g.id), method: :delete %> 
+        <%= t.user.email %> 
+        <%= g.name %>
+        <%= g.about %>
+        <%= g.created_at %>
+        <%= link_to "詳細へ", good_path(g.id) %> 
+
+        <% if user_signed_in? && current_user.id == g.user_id %>
+        <%= link_to "編集する", edit_good_path(g.id) %>
+        <%= link_to "削除する", good_path(t.id), method: :delete %>
+
+    <% end %> 
+
         </div>
     <% end %>
 </div>

@@ -13,12 +13,12 @@
   <%= g.body %>
 <% end %>
 
-<!-- 以下はいいね機能を実装している場合-->
+
 <h2>ユーザーがいいねした投稿一覧</h2>
 <% @user.liked_goods.each do |t| %>
   <%= g.user.username %>
   <%= g.body %>
 <% end %>
-<!-- ここまで-->
+
 
 <%= link_to "投稿一覧に戻る", goods_path %>
