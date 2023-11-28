@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_11_27_032815) do
+ActiveRecord::Schema.define(version: 2023_11_27_165650) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 2023_11_27_032815) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+  create_table "relationships", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "follow_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["follow_id"], name: "index_relationships_on_follow_id"
+    t.index ["user_id", "follow_id"], name: "index_relationships_on_user_id_and_follow_id", unique: true
+    t.index ["user_id"], name: "index_relationships_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -58,4 +68,6 @@ ActiveRecord::Schema.define(version: 2023_11_27_032815) do
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "goods"
   add_foreign_key "likes", "users"
+  add_foreign_key "relationships", "users"
+  add_foreign_key "relationships", "users", column: "follow_id"
 end

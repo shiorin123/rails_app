@@ -10,13 +10,13 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show] 
 
+  resources :relationships, only: [:create, :destroy]
+
   root 'goods#index'
 
   Rails.application.routes.draw do
     resources :goods
   end
-
-  
 
 
 end
