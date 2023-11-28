@@ -8,14 +8,14 @@
 <% end %>
 
 <h2>ユーザーの投稿一覧</h2>
-<% @user.tweets.each do |t| %>
+<% @user.goods.each do |g| %>
   <%= g.user.username %>
   <%= g.body %>
 <% end %>
 
 
 <h2>ユーザーがいいねした投稿一覧</h2>
-<% @user.liked_goods.each do |t| %>
+<% @user.liked_goods.each do |g| %>
   <%= g.user.username %>
   <%= g.body %>
 <% end %>
