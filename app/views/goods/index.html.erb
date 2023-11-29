@@ -21,6 +21,7 @@
         <%= image_tag t.image_url, size: "250x200" if t.image? %>
 
      <% if user_signed_in? %>
+        
             <% if current_user.already_liked?(g) %>
                 <%= link_to good_like_path(id: t.id, good_id: t.id), method: :delete do %>
                     <i class="fas fa-heart"></i><%= t.likes.count %>
@@ -34,6 +35,7 @@
         <i class="far fa-heart"></i><%= t.likes.count %>
     <% end %>
 
+        <%= link_to g.user.username, user_path(g.user.id) %>
         <%= t.user.email %> 
         <%= g.name %>
         <%= g.about %>
