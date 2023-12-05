@@ -3,7 +3,9 @@
 <div class="good">
   <p><%= @good.name %></p>
   <p><%= @good.about %></p>
+  <p><%= @good.user.email %></p>
   <p><%= @good.created_at %></p>
+
   <% if user_signed_in? %>
         <% if current_user.already_liked?(@good) %>
             <%= link_to tweet_like_path(@good), method: :delete do %>

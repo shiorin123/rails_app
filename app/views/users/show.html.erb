@@ -10,14 +10,18 @@
 <h2>ユーザーの投稿一覧</h2>
 <% @user.goods.each do |g| %>
   <%= g.user.username %>
-  <%= g.body %>
+  <%= g.name %>
+  <%= g.about %>
+
 <% end %>
 
 
 <h2>ユーザーがいいねした投稿一覧</h2>
 <% @user.liked_goods.each do |g| %>
   <%= g.user.username %>
-  <%= g.body %>
+  <%= g.name %>
+  <%= g.about %>
+  
 <% end %>
 
 

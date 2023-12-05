@@ -18,25 +18,25 @@
     <% @goods.each do |g| %>
         <div class="good">
 
-        <%= image_tag t.image_url, size: "250x200" if t.image? %>
+        <%= image_tag g.image_url, size: "250x200" if g.image? %>
 
      <% if user_signed_in? %>
         
             <% if current_user.already_liked?(g) %>
-                <%= link_to good_like_path(id: t.id, good_id: t.id), method: :delete do %>
+                <%= link_to good_like_path(id: g.id, good_id: g.id), method: :delete do %>
                     <i class="fas fa-heart"></i><%= t.likes.count %>
                 <% end %>
             <% else %>
                 <%= link_to good_likes_path(id: g.id, good_id: g.id), method: :post do %>
-                    <i class="far fa-heart"></i><%= t.likes.count %>
+                    <i class="far fa-heart"></i><%= g.likes.count %>
                 <% end %>
             <% end %>
         <% else %>
-        <i class="far fa-heart"></i><%= t.likes.count %>
+        <i class="far fa-heart"></i><%= g.likes.count %>
     <% end %>
 
         <%= link_to g.user.username, user_path(g.user.id) %>
-        <%= t.user.email %> 
+        <%= g.user.email %> 
         <%= g.name %>
         <%= g.about %>
         <%= g.created_at %>
@@ -44,7 +44,7 @@
 
         <% if user_signed_in? && current_user.id == g.user_id %>
         <%= link_to "編集する", edit_good_path(g.id) %>
-        <%= link_to "削除する", good_path(t.id), method: :delete %>
+        <%= link_to "削除する", good_path(g.id), method: :delete %>
 
     <% end %> 
 
