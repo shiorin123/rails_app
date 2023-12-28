@@ -1,0 +1,91 @@
+.sign_up{
+    width: 100%;
+    background-color:  white;
+    padding: 70px 0px;
+
+    .sign_up_box{
+        width: 880px;
+        height: 803px;
+        background-color: #F4F4F4;
+        margin: auto;
+        
+        .title_area{
+            width: 880px;
+            height: 140px;
+            background-color: #F4F4F4;
+            padding-top: 60px;
+
+            .title{
+                margin: auto;
+                font-size: 36px;
+                line-height: 80px;
+                text-align: center;
+                width: 670px;
+                height: 80px;
+                background-color:  #DBDADB;
+                
+            }
+            
+        }
+        
+        .field_area{
+            width: 600px;
+            height: 372px;
+            background-color: #F4F4F4;
+            margin: auto;
+
+            .field{
+                margin-bottom: 40px;
+                .field_input{
+                    width: 600px;
+                    height: 63px;
+                    background-color:  #DBDADB;
+                    border: 0px none;
+
+                    font-size: 24px;
+                    line-height: 63px;
+                }
+                
+            }
+
+        }
+        
+        .submit{
+            width: 100%;
+            height: 191px;
+            background-color: #F4F4F4;
+            padding-top: 60px;
+
+            .actions{
+                background-color:  #7BBADB;
+                width: 330px;
+                height: 50px;
+                margin: auto;
+                text-align: center;
+
+                .submit_button{
+                    height: 50px;
+                    background-color:  #7BBADB;
+                    font-size: 20px;
+                    line-height: 50px;
+                    border: 0px none;
+                    text-align: center;
+                    margin: auto;
+                }
+            }
+        }
+    }
+}
+.share{
+    width: 100%;
+    text-align: center;
+    margin-top: 16px;
+    
+
+.share_text{
+    text-decoration: none;
+    line-height: 19px;
+    font-size: 15px;
+    color:aqua
+}
+}

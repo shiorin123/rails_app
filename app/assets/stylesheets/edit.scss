@@ -1,0 +1,26 @@
+.edit-container {
+    margin: 50px auto;
+    width: 50%;
+    border: solid beige;
+    border-radius: 10px;
+    text-align: center;
+    background-color: beige;
+  }
+  .title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 50px;
+  }
+  input[type="text"] {
+    width: 95%;
+    height: 40px;
+  }
+  input[type="submit"] {
+    width: 200px;
+    font-size: 20px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+  .edit-sub{
+    text-align: center;
+  }

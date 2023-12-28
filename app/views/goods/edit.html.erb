@@ -1,7 +1,13 @@
-<%= form_for @good do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name, :size => 30 %> 
-    <%= f.label :about %>
-    <%= f.text_area :about, :size => "30x2" %> 
-    <%= f.submit "編集する" %>
-  <% end %>
+<div class="edit-container">
+    <%= form_for @good do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name, :size => 30 %> 
+      <%= f.label :about %>
+      <%= f.text_area :about, :size => "30x2" %> 
+      <%= f.submit "編集する" %>
+    <% end %>
+</div>
+
+<div class="edit-sub">
+  <%= link_to "投稿一覧に戻る", goods_path %>
+</div>

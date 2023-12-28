@@ -1,0 +1,13 @@
+<h1>DM</h1>
+<% if user_signed_in? %>
+<h2>Hello <%= current_user.email %></h2>
+  <% @users.each do |u| %>
+  <p><a href="/users/<%= u.id %>"><%= u.email %>さん</a></p>
+  <hr>
+  <% end %>
+  <%= link_to "ログアウト", destroy_user_session_path, :method => :delete %>
+<% else %>
+  <%= link_to "ユーザーを登録する", new_user_registration_path %>
+  <br>
+  <%= link_to "ログインする", new_user_session_path %>
+<% end %>

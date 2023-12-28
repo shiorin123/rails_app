@@ -1,4 +1,10 @@
-<h1>users#show</h1>
+<h1>ユーザー詳細</h1>
+
+<h2><%= @user.email %></h2>
+
+
+<%= image_tag @user.image_url, size: "250x200" if @user.image? %>
+<%= image_tag @user.avatar_url, size: "250x200" if @user.avatar? %>
 <p>名前 : <%= @user.username %></p>
 <p>メールアドレス : <%= @user.email %></p>
 <p>プロフィール : <%= @user.profile %></p>
@@ -6,6 +12,22 @@
 <% if current_user.id == @user.id %>
   <%= link_to "編集する", edit_user_registration_path %>
 <% end %>
+
+<% if @user.id == current_user.id %>
+
+<% else %>
+  <% if @isRoom == true %>
+    <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
+  <% else %>
+    <%= form_for @room do |f| %>
+      <%= fields_for @entry do |e| %>
+        <%= e.hidden_field :user_id, :value=> @user.id %>
+      <% end %>
+      <%= f.submit "チャットを始める" %>
+    <% end %>
+  <% end %>
+<% end %>
+
 
 <h2>ユーザーの投稿一覧</h2>
 <% @user.goods.each do |g| %>

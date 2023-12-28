@@ -1,22 +1,26 @@
-<h1>GeekInstagram</h1>
-<h3>新規投稿</h3>
+<%= stylesheet_link_tag 'new', :media => "all" %>
+
+<div class="post-container">
+<p class="title">新規投稿</p>
 <%= form_for @good do |f| %>
-  <div class="field">
+
     <%= f.label :name %>
     <%= f.text_field :name, :size => 30 %>
-  </div>
 
-  <div class="field">
+
     <%= f.label :about  %>
     <%= f.text_area :about, :size => "30x2" %>
-  </div>
 
-  <div class="field">
+
+ 
     <%= f.label :image %>
     <%= f.file_field :image %>
-  </div>
+ 
 
   <%= f.submit "投稿する" %>
 <% end %>
+</div>
 
-<%= link_to "投稿一覧に戻る", goods_path %>
+<div class="post-sub">
+  <%= link_to "投稿一覧に戻る", goods_path %>
+</div>

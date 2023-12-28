@@ -1,31 +1,35 @@
-<h1>GeekInstagram</h1>
+<div class="goods-container">
 <h3>投稿詳細</h3>
-<div class="good">
-  <p><%= @good.name %></p>
-  <p><%= @good.about %></p>
-  <p><%= @good.user.email %></p>
-  <p><%= @good.created_at %></p>
+  <div class="good">
+  <%= image_tag @user.image_url, size: "250x200" if @user.image? %>
+    <p><%= @good.name %></p>
+    <p><%= @good.about %></p>
+    <p><%= @good.user.email %></p>
+    <p><%= @good.created_at %></p>
 
-  <% if user_signed_in? %>
-        <% if current_user.already_liked?(@good) %>
-            <%= link_to tweet_like_path(@good), method: :delete do %>
-                <i class="fas fa-heart"></i><%= @good.likes.count %>
-            <% end %>
-        <% else %>
-            <%= link_to good_likes_path(@good), method: :post do %>
-                <i class="far fa-heart"></i><%= @good.likes.count %>
-            <% end %>
-        <% end %>
-        <% else %>
-        <i class="far fa-heart"></i><%= @good.likes.count %>
-        <% end %>
-    <%= link_to "編集する", edit_good_path(@good.id) %>
-</div>
 
-<h2>いいねしたユーザー</h2>
-<% @good.liked_users.each do |user| %>
-  <li><%= user.email %></li>
-<% end %>
+    <% if user_signed_in? %>
+          <% if current_user.already_liked?(@good) %>
+              <%= button_to good_like_path(@good), method: :delete do %>
+                  <i class="fas fa-heart"></i><%= @good.likes.count %>
+              <% end %>
+          <% else %>
+              <%= button_to good_likes_path(@good), method: :post do %>
+                  <i class="far fa-heart"></i><%= @good.likes.count %>
+              <% end %>
+          <% end %>
+          <% else %>
+          <i class="far fa-heart"></i><%= @good.likes.count %>
+          <% end %>
+      <%= link_to "編集する", edit_good_path(@good.id) %>
+  </div>
+
+  <div class="show-sub">
+    <h2>いいねしたユーザー</h2>
+    <% @good.liked_users.each do |user| %>
+      <li><%= user.email %></li>
+    <% end %>
+  </div>
 
 <div class="comment-wrapper">
   <p>コメント一覧</p>
@@ -35,6 +39,9 @@
       <br>
       <%= c.content %>
     </div>
+    <% if user_signed_in? && current_user.id == c.user_id %>
+        <%= button_to "削除する", good_comment_path(c.id), method: :delete %>
+    <% end %>
       <br>
   <% end %>
 
@@ -46,6 +53,7 @@
       <% end %>
     <% end %>
   <% end %>
+  
 </div>
 
 <%= link_to "投稿一覧に戻る", goods_path %>
