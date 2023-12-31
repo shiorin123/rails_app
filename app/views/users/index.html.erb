@@ -1,13 +1,26 @@
-<h1>DM</h1>
+<h1>DMサンプル</h1>
+<h2>User一覧ページ</h2>
+
 <% if user_signed_in? %>
-<h2>Hello <%= current_user.email %></h2>
-  <% @users.each do |u| %>
-  <p><a href="/users/<%= u.id %>"><%= u.email %>さん</a></p>
-  <hr>
-  <% end %>
-  <%= link_to "ログアウト", destroy_user_session_path, :method => :delete %>
+    <h2><%= current_user.email %>でログインしています</h2> 
+    <%= link_to "SignOut", destroy_user_session_path, :method => :delete, class:"signOutButton" %>
+
+
+    <% number = 1%>
+    <div class="flex">
+        <% @users.each do |u| %>
+        <div class="user-in">
+            <p>プロフィール No.<%= number %></p>
+            <p><%= u.email %>さん</p>
+            <p><%= link_to 'ユーザーページへ', user_path(u.id) %></p>
+        </div>
+        <% number += 1 %>
+        <% end %>
+    </div>
+
 <% else %>
-  <%= link_to "ユーザーを登録する", new_user_registration_path %>
+  <%= link_to "SignUp", new_user_registration_path %>
   <br>
-  <%= link_to "ログインする", new_user_session_path %>
+  <%= link_to "SignIn", new_user_session_path %>
 <% end %>
+

@@ -14,6 +14,13 @@
  *= require_self
  */
 
+ @media screen and (max-width:680px ) {
+  .good {
+margin: 30px;
+width:100px;
+}
+ }
+
  * {
   padding: 0;
   margin: 0;

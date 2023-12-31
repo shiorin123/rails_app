@@ -12,7 +12,7 @@
     <h3>投稿を検索</h3>
     <%= form_tag({controller:"goods",action:"index"}, method: :get) do %>
     <%= text_field_tag :search %>
-    <%= submit_tag '検索する'  %>
+    <button type="submit_tag" class="btn btn-outline-warning">検索する</button>
     <% end %>
 
     <%= link_to "新規投稿へ", new_good_path %>
