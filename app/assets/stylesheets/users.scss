@@ -28,3 +28,15 @@
                     font-size: 20px;
                 }
 }
+.signOutButton{
+    text-decoration:none;
+    display:inline-block;
+    border:3px solid royalblue;
+    background-color:aliceblue;
+    padding:5px;
+}
+.flex{
+    display:flex;
+    flex-wrap:wrap;    
+}
+

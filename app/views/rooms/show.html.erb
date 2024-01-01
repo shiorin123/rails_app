@@ -1,21 +1,22 @@
+<div class="user-in">
 <% @entries.each do |e| %>
-    <% if @myUserId != e.user.id %>
-        <h2><%= e.user.username %>さんとのトークルーム</h2>
-      </div>
+    <h3><strong><a href="/users/<%= e.user.id %>"><%= e.user.email%></a></strong></h3>
+<% end %>
+<p>2人のDM❤️</p>
+</div>
+
+<div class="dmMain">
+    <% @messages.each do |m| %>
+        <strong><%= m.body %></strong>
+        <small><%= m.user.email %>さん</small><hr>
     <% end %>
-  <% end %>
-  <%= link_to "ユーザー一覧に戻る", users_path %>
-  
-     <% if @messages.present? %>
-       <% @messages.each do |m| %>
-         <% @myUserId == m.user.id  %>
-         <p><%= m.user.username %></p>
-           <p><%= m.message %></p>
-       <% end %>
-     <% end %>
-     
-  <%= form_for @message do |f| %>
-     <%= f.text_field :message, placeholder: "メッセージを入力して下さい" , size: 50, class:"form-text-field" %>
-        <%= f.hidden_field :room_id, value: @room.id %>
-          <%= f.submit "投稿",class: 'form-submit'%>
-   <% end %>
+
+    <%= form_for @message do |f| %>
+    <%= f.text_field :body, :placeholder => "メッセージを入力して下さい" , :size => 100 %>
+    <%= f.hidden_field :room_id, :value => @room.id %>
+    <br>
+    <%= f.submit "送信する" %>
+    <% end %>
+</div>
+
+<%= link_to "ユーザー一覧に戻る", users_path %>
