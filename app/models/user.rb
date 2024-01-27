@@ -18,7 +18,7 @@ class User < ApplicationRecord
         has_many :comments, dependent: :destroy
 
         devise :database_authenticatable, :registerable,
-              :recoverable, :rememberable, :trackable, :validatable
+                :recoverable, :rememberable, :trackable, :validatable
         has_many :messages, dependent: :destroy
         has_many :entries, dependent: :destroy
 

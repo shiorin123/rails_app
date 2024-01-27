@@ -5,14 +5,14 @@
 
     .sign_in_box{
         width: 880px;
-        height: 803px;
-        background-color: #F4F4F4;
+        height: 700px;
+       
         margin: auto;
 
         .login_area{
             width: 880px;
             height: 140px;
-            background-color: #F4F4F4;
+            
             padding-top: 60px;
 
             .login{
@@ -20,46 +20,60 @@
                 font-size: 36px;
                 line-height: 80px;
                 text-align: center;
-                width: 670px;
-                height: 80px;
-                background-color:  #DBDADB;
             }
         }
 
         .field_area{
             width: 550px;
             height: 200px;
-            background-color: #F4F4F4;
-            margin: auto;
+            
+            margin-left: 15%;
 
             .field{
-                margin-bottom: 60px;
+                margin: 20px;
+                padding: 20px;
+                margin-right: 20%;
+
+
+                
                 .field_input{
                     width: 550px;
                     height: 45px;
-                    background-color: #DBDADB;
+                    background-color: #e9e9e9;
                     border: 0px none;
 
-                    font-size: 24px;
-                    line-height: 40px;
+                    font-size: 13px;
+                    text-align: start;
+
+                    
                 }
             }
         }
          .sub_area{
             width: 150px;
             height: 90px;
-            margin: auto;
-            background-color: #F4F4F4;
+           
+            
 
             .sub{
-                margin-bottom: 30px;
+                background-color: pink;
+                margin-left: 440px;
+                
+                
                 .sub_input{
-                    width: 600px;
-                    height: 70px;
+                    width: 40px;
+                    height: 10px;
+                    display: flex;
+                    justify-content: center;
                     
                     font-size: 18px;
                     
+                    
+                    
+                    
+                    
                 }
+                
             }
 
 
@@ -69,24 +83,23 @@
         .submit{
             width: 100%;
             height: 100px;
-            background-color: #F4F4F4;
+            
 
             .actions{
-                background-color:  #7BBADB;
-                width: 330px;
-                height: 50px;
-                margin: auto;
-                text-align: center;
+                
+
 
 
                 .submit_button{
-                    
-                    background-color:  #7BBADB;
-                    font-size: 20px;
-                    line-height: 40px;
-                    border: 0px none;
-                    text-align: center;
+                    width: 550px;
+                    height: 50px;
                     margin: auto;
+                    margin-left: 20%;
+                    background-color: lightblue;
+                    border-radius: 100vh;
+                    color: #fff;
+                    text-align: center;
+                    border: 0px none;
                     
                 }
             }
@@ -96,15 +109,14 @@
 
 .share{
     width: 100%;
-    background-color: #F4F4F4;
     text-align: center;
-
-    .share_text{
-        text-decoration: none;
-        line-height: 19px;
-        font-size: 15px;
-        color: aqua
-    }
+    margin-top: 16px;
     
 
+.share_text{
+    text-decoration: none;
+    line-height: 19px;
+    font-size: 15px;
+    color:black
+}
 }

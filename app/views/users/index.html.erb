@@ -1,26 +1,39 @@
-<h1>DMサンプル</h1>
-<h2>User一覧ページ</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+        <br>
+        <br>
+            <h1>DMサンプル</h1>
+            <h2>User一覧ページ</h2>
 
-<% if user_signed_in? %>
-    <h2><%= current_user.email %>でログインしています</h2> 
-    <%= link_to "SignOut", destroy_user_session_path, :method => :delete, class:"signOutButton" %>
+            <% if user_signed_in? %>
+                <h2><%= current_user.email %>でログインしています</h2> 
+                <br>
 
-
-    <% number = 1%>
-    <div class="flex">
-        <% @users.each do |u| %>
-        <div class="user-in">
-            <p>プロフィール No.<%= number %></p>
-            <p><%= u.email %>さん</p>
-            <p><%= link_to 'ユーザーページへ', user_path(u.id) %></p>
+                <%= link_to "SignOut", destroy_user_session_path, :method => :delete, class:"signOutButton" %>
+            <br>
+            <br>
         </div>
-        <% number += 1 %>
-        <% end %>
-    </div>
+        <div class="col-md-6">
+                    <% number = 1%>
+                    <div class="flex">
+                        <% @users.each do |u| %>
+                        <div class="user-in">
+                            <p>プロフィール No.<%= number %></p>
+                            <p><%= u.email %>さん</p>
+                            <p><%= link_to 'ユーザーページへ', user_path(u.id) %></p>
+                        </div>
+                        <% number += 1 %>
+                        <% end %>
+                    </div>
 
-<% else %>
-  <%= link_to "SignUp", new_user_registration_path %>
-  <br>
-  <%= link_to "SignIn", new_user_session_path %>
-<% end %>
+            <% else %>
+            <%= link_to "SignUp", new_user_registration_path %>
+            <br>
+            <%= link_to "SignIn", new_user_session_path %>
+            <% end %>
+        </div>
+    </div>
+</div>
+
 
