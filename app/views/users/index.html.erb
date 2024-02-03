@@ -10,7 +10,7 @@
                 <h2><%= current_user.email %>でログインしています</h2> 
                 <br>
 
-                <%= link_to "SignOut", destroy_user_session_path, :method => :delete, class:"signOutButton" %>
+                <%= button_to "SignOut", destroy_user_session_path, :method => :delete, class:"signOutButton" %>
             <br>
             <br>
         </div>

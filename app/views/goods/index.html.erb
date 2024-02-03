@@ -4,89 +4,95 @@
 <br>
 <br>
 <h2><p class="text-center">投稿一覧</p></h2>
+
 <div class="container">
     <div class="row">  
-
         <div class="col-md-9">
-        <br>
-        <br>
-            <%= form_tag({controller:"goods",action:"index"}, method: :get) do %>
-                <%= text_field_tag :search %>
-                <button type="submit_tag" class="btn btn-outline-warning">検索する</button>
-            <% end %>
+            <br>
+            <br>
+                <%= form_tag({controller:"goods",action:"index"}, method: :get) do %>
+                    <%= text_field_tag :search %>
+                    <br>
+                    <button type="submit_tag" class="btn btn-outline-warning">検索する</button>
+                <% end %>
         </div>
+        
         <div class="col-md-3">
 
 
-        <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
-            <% if user_signed_in? %>
-                <%= link_to "マイページへ", user_path(current_user.id) %>
-            <% end %>
+            <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+                <% if user_signed_in? %>
+                    <%= link_to "マイページへ", user_path(current_user.id) %>
+                <% end %>
 
-            <%= link_to "新規投稿へ", new_good_path %>
+                <%= link_to "新規投稿へ", new_good_path %>
 
         </div>
     </div>
-</div>
 
+<br>
+<br>
+<br>
+<br>
+                
 
-
-        <div class="goods-container">
-            <div class="row">
-                <% @goods.each do |g| %>
-                    <div class="col-sm-4">
-
-                        <div class="card" style="width: 18rem;">
-                            <%= image_tag g.image_url, size: "250x200" if g.image? %>
-                            <div class="card-body">
-                                    <% if user_signed_in? %>
-                                    
-                                        <% if current_user.already_liked?(g) %>
-                                            <%= button_to good_like_path(id: g.id, good_id: g.id), method: :delete do %>
-                                                <i class="fa-regular fa-heart" style="color: gray;"></i><%= g.likes.count %>
+        <div class="row">
+           
+            <% @goods.each do |g| %>
+                
+                <div class="col-4">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <div class="column flex-direction:row"> 
+                                <%= image_tag g.image_url, size: "250x200" if g.image? %>
+                                
+                                        <% if user_signed_in? %>
+                                        
+                                            <% if current_user.already_liked?(g) %>
+                                                <%= button_to good_like_path(id: g.id, good_id: g.id), method: :delete do %>
+                                                    <i class="fa-solid fa-heart" style="color: red;"></i><%= g.likes.count %>
+                                                <% end %>
+                                            <% else %>
+                                                <%= button_to good_likes_path(id: g.id, good_id: g.id), method: :post do %>
+                                                    <i class="fa-regular fa-heart" style="color: gray;" ></i><%= g.likes.count %>
+                                                <% end %>
                                             <% end %>
                                         <% else %>
-                                            <%= button_to good_likes_path(id: g.id, good_id: g.id), method: :post do %>
-                                                <i class="fa-solid fa-heart" style="color: red;" ></i><%= g.likes.count %>
-                                            <% end %>
-                                        <% end %>
-                                    <% else %>
-                                    <i class="far fa-heart"></i><%= g.likes.count %>
-                                <% end %>
+                                        <i class="far fa-heart"></i><%= g.likes.count %>
+                                    <% end %>
 
-                                
-                                
-                                    <h5 class="card-title"><%= link_to g.user.username, user_path(g.user.id) %></h5>
-                                    <p class="card-text">
-                                        <%= g.user.email %> 
-                                        <br>
-                                        <%= g.name %>
-                                        <br>
-                                        <%= g.about %>
-                                        <br>
-                                        <%= g.created_at %>
-                                        <br>
                                     
-                            
-                                        <% if user_signed_in? && current_user.id == g.user_id %>
-                                        <%= link_to "詳細", good_path(g.id) %>
-                                        <%= link_to "編集する", edit_good_path(g.id) %>
-                                        <%= button_to "削除する", good_path(g.id), method: :delete %>
-                                    </p>
-                            </div>
-                            
+                                    
+                                        <h5 class="card-title"><%= link_to g.user.username, user_path(g.user.id) %></h5>
+                                        <p class="card-text">
+                                            <%= g.user.email %> 
+                                            <br>
+                                            <%= g.name %>
+                                            <br>
+                                            <%= g.about %>
+                                            <br>
+                                            <%= g.created_at %>
+                                            <br>
+                                        
+                                
+                                            <% if user_signed_in? && current_user.id == g.user_id %>
+                                            <%= link_to "詳細", good_path(g.id) %>
+                                            <%= link_to "編集する", edit_good_path(g.id) %>
+                                            <%= button_to "削除する", good_path(g.id), method: :delete %>
+                                        </p>
+                            </div>            
                         </div>
-                        <br>
-                        <br>
-
+                        
                     </div>
-                <% end %> 
-            </div>
-        </div>
-        
-    </div>
-        
+                    <br>
+                    <br>
 
+                        
+                </div>
+            <% end %>
+            <% end %>
         </div>
-    <% end %>
+    <div class="row"></div>
 </div>
+    
+
