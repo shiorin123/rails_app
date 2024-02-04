@@ -1,9 +1,14 @@
 <%= stylesheet_link_tag 'index', :media => "all" %>
-<img src="/assets/cappa.jpg" class="d-block w-100" alt="...">
+<div class="example">
+    <img src="/assets/eiga.jpg" class="d-block w-100" alt="...">
+    <p>最高の映画体験を。</p>
+</div>
+
+
 
 <br>
 <br>
-<h2><p class="text-center">投稿一覧</p></h2>
+<h2><p class="text-center">Movie file</p></h2>
 
 <div class="container">
     <div class="row">  
@@ -13,19 +18,20 @@
                 <%= form_tag({controller:"goods",action:"index"}, method: :get) do %>
                     <%= text_field_tag :search %>
                     <br>
-                    <button type="submit_tag" class="btn btn-outline-warning">検索する</button>
+                    <br>
+                    <button type="submit_tag" class="btn btn-outline-warning">Search</button>
                 <% end %>
         </div>
         
         <div class="col-md-3">
 
 
-            <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+            <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
                 <% if user_signed_in? %>
-                    <%= link_to "マイページへ", user_path(current_user.id) %>
+                    <%= link_to "My page", user_path(current_user.id) %>
                 <% end %>
 
-                <%= link_to "新規投稿へ", new_good_path %>
+                <%= link_to "New post", new_good_path %>
 
         </div>
     </div>
@@ -45,6 +51,8 @@
                         <div class="card-body">
                             <div class="column flex-direction:row"> 
                                 <%= image_tag g.image_url, size: "250x200" if g.image? %>
+                                <br>
+                                <br>
                                 
                                         <% if user_signed_in? %>
                                         
@@ -94,5 +102,28 @@
         </div>
     <div class="row"></div>
 </div>
+<br>
+<br>
+<br>
+<div class="scroll-infinity">
+      <div class="scroll-infinity__wrap">
+        <ul class="scroll-infinity__list scroll-infinity__list--right">
+          <li class="scroll-infinity__item"><img src="../assets/konan.jpg"></li>
+          <li class="scroll-infinity__item"><img src="../assets/king.jpg"></li>
+          <li class="scroll-infinity__item"><img src="../assets/bosei.jpg"></li>
+          <li class="scroll-infinity__item"><img src="../assets/desny.jpg"></li>
+          <li class="scroll-infinity__item"><img src="../assets/kisei.png"></li>
+          <li class="scroll-infinity__item"><img src="../assets/lalaland.jpg"></li>
+        </ul>
+        <ul class="scroll-infinity__list scroll-infinity__list--right">
+          <li class="scroll-infinity__item"><img src="../assets/kimi.jpg"></li>
+          <li class="scroll-infinity__item"><img src="../assets/haken.jpg"></li>
+          <li class="scroll-infinity__item"><img src="../assets/1200.jpg"></li>
+          <li class="scroll-infinity__item"><img src="../assets/sigatu.jpg"></li>
+          <li class="scroll-infinity__item"><img src="../assets/kujira.jpg"></li>
+          <li class="scroll-infinity__item"><img src="../assets/tokyo.jpg"></li>
+        </ul>
+      </div>
+      </div>
     
 

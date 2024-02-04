@@ -8,7 +8,79 @@
   }
   .container{
     text-align: center;
+    font-family: Century;
   }
+  .text-center{
+    font-family: Century;
+  }
+  .example {
+    position: relative;
+    }
+  
+  .example p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    padding:0;
+    font-size:5em;
+	text-align:center;
+	line-height:0.95em;
+	font-weight:bold;
+	color: #FFF;
+	text-shadow: 
+		0 0 0.05em #F06292,
+		0 0 0.10em #F06292,
+		0 0 0.15em #F06292,
+		0 0 0.30em #F06292;
+	filter: saturate(80%);
+  font-family: "MS PMincho";
+    }
+  
+  .example img {
+    width: 100%;
+    }
+    @keyframes infinity-scroll-left {
+      from {
+        transform: translateX(0);
+      }
+        to {
+        transform: translateX(-100%);
+      }
+      }
+      .scroll-infinity__wrap {
+        display: flex;
+        overflow: hidden;
+      }
+      .scroll-infinity__list {
+        display: flex;
+        list-style: none;
+        padding: 0
+      }
+      .scroll-infinity__list--left {
+        animation: infinity-scroll-left 80s infinite linear 0.5s both;
+      }
+      .scroll-infinity__item {
+        width: calc(100vw / 6);
+      }
+      .scroll-infinity__item>img {
+        width: 100%;
+      }
+  @keyframes infinity-scroll-right {
+    from {
+      transform: translateX(-100%);
+    }
+      to {
+      transform: translateX(0%);
+    }
+    }
+    .scroll-infinity__list--right{
+      animation :infinity-scroll-right 40s infinite linear 0.5s both;
+    }
+  
 
 
  

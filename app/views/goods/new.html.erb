@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag 'new', :media => "all" %>
 
 <div class="post-container">
-<p class="title">新規投稿</p>
+<p class="title">New post</p>
 <%= form_for @good do |f| %>
 
     <%= f.label :name %>
@@ -17,10 +17,10 @@
     <%= f.file_field :image %>
  
 
-  <%= f.submit "投稿する" %>
+  <%= f.submit "Post" %>
 <% end %>
 </div>
 
 <div class="post-sub">
-  <%= link_to "投稿一覧に戻る", goods_path %>
+  <%= link_to "Go to post list", goods_path %>
 </div>
