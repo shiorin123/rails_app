@@ -4,6 +4,7 @@
     <p>最高の映画体験を。</p>
 </div>
 
+<%= line_chart @goods.group_by_day(:created_at).count%>
 
 
 <br>
@@ -64,7 +65,7 @@
                                                 <%= button_to good_likes_path(id: g.id, good_id: g.id), method: :post do %>
                                                     <i class="fa-regular fa-heart" style="color: gray;" ></i><%= g.likes.count %>
                                                 <% end %>
-                                            <% end %>
+                                            <% end %>   
                                         <% else %>
                                         <i class="far fa-heart"></i><%= g.likes.count %>
                                     <% end %>

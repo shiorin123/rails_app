@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   
   def index
     @users=User.all
+    @goods = @user.goods.group_by_month(:created_at).count
   end
 
 
